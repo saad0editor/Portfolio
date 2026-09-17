@@ -199,29 +199,27 @@
   .ic-ae{ background:linear-gradient(135deg,#00005b,#9999ff); }
   .ic-pr{ background:linear-gradient(135deg,#00005b,#9999ff); }
 
-  /* ---------- WORK TRIGGER (أعمالي) — liquid glass ---------- */
+  /* ---------- WORK TRIGGER (أعمالي) — liquid glass, larger stacked-card look ---------- */
   .work-trigger{
     position:relative;
     overflow:hidden;
     width:100%;
-    display:flex;
-    align-items:center;
-    gap:14px;
-    padding:18px 20px;
-    border-radius:22px;
+    display:block;
+    padding:22px 22px 24px;
+    border-radius:28px;
     cursor:pointer;
     font-family:'Tajawal', sans-serif;
     text-align:right;
     color:var(--ink);
     background:
-      linear-gradient(155deg, rgba(255,255,255,0.16), rgba(255,255,255,0.02) 45%, rgba(43,227,227,0.10) 100%);
-    -webkit-backdrop-filter: blur(24px) saturate(170%);
-    backdrop-filter: blur(24px) saturate(170%);
-    border:1px solid rgba(255,255,255,0.25);
+      linear-gradient(160deg, rgba(255,255,255,0.10), rgba(255,255,255,0.015) 45%, rgba(43,227,227,0.07) 100%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    backdrop-filter: blur(20px) saturate(160%);
+    border:1px solid rgba(255,255,255,0.16);
     box-shadow:
-      0 20px 44px -22px rgba(43,227,227,.45),
-      inset 0 1px 0 rgba(255,255,255,.4),
-      inset 0 -20px 32px -24px rgba(43,227,227,.3);
+      0 24px 50px -26px rgba(43,227,227,.4),
+      inset 0 1px 0 rgba(255,255,255,.3),
+      inset 0 -22px 34px -26px rgba(43,227,227,.22);
     transition:transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease;
   }
   .work-trigger::before{
@@ -229,7 +227,7 @@
     position:absolute;
     top:-70%; left:-25%;
     width:65%; height:240%;
-    background:linear-gradient(115deg, rgba(255,255,255,0.28), rgba(255,255,255,0) 55%);
+    background:linear-gradient(115deg, rgba(255,255,255,0.22), rgba(255,255,255,0) 55%);
     transform:rotate(18deg);
     pointer-events:none;
     transition:transform .6s ease;
@@ -239,7 +237,7 @@
     position:absolute; inset:0;
     border-radius:inherit;
     padding:1px;
-    background:linear-gradient(155deg, rgba(255,255,255,.5), rgba(255,255,255,0) 30%, rgba(43,227,227,.35) 100%);
+    background:linear-gradient(155deg, rgba(255,255,255,.45), rgba(255,255,255,0) 30%, rgba(43,227,227,.3) 100%);
     -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -248,28 +246,99 @@
   .work-trigger:hover{
     transform:translateY(-4px);
     box-shadow:
-      0 26px 52px -20px rgba(43,227,227,.6),
-      inset 0 1px 0 rgba(255,255,255,.45),
-      inset 0 -20px 32px -24px rgba(43,227,227,.35);
+      0 30px 58px -22px rgba(43,227,227,.55),
+      inset 0 1px 0 rgba(255,255,255,.35),
+      inset 0 -22px 34px -26px rgba(43,227,227,.28);
   }
   .work-trigger:hover::before{ transform:rotate(18deg) translateX(40px); }
+  .work-trigger:hover .l2{ transform:rotate(6deg) translateY(-4px); }
+  .work-trigger:hover .l3{ transform:rotate(-10deg) translateY(4px); }
   .work-trigger:active{ transform:translateY(-1px) scale(.99); }
-  .work-icon{
-    position:relative;
-    z-index:1;
-    flex:0 0 auto;
-    width:46px; height:46px;
-    border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    background:linear-gradient(135deg, var(--cyan), var(--indigo));
-    color:#04141a;
-    box-shadow:0 0 18px rgba(43,227,227,.55), inset 0 1px 0 rgba(255,255,255,.5);
+
+  .work-top{
+    position:relative; z-index:1;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:20px;
   }
-  .work-icon svg{ width:20px; height:20px; }
-  .work-text{ position:relative; z-index:1; flex:1; display:flex; flex-direction:column; gap:2px; }
-  .work-text strong{ font-size:16px; font-weight:800; }
-  .work-text small{ font-size:12px; color:var(--ink-dim); font-weight:500; }
-  .work-arrow{ position:relative; z-index:1; font-size:20px; color:var(--cyan); flex:0 0 auto; }
+  .work-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:7px 18px;
+    border-radius:999px;
+    font-size:12.5px;
+    font-weight:800;
+    color:#04141a;
+    background:linear-gradient(135deg, var(--cyan-soft), var(--cyan));
+    box-shadow:0 8px 18px -8px rgba(43,227,227,.65), inset 0 1px 0 rgba(255,255,255,.55);
+  }
+  .work-meta{
+    font-size:11.5px;
+    color:var(--ink-dim);
+    font-weight:500;
+  }
+
+  .work-stack{
+    position:relative; z-index:1;
+    height:128px;
+    width:100%;
+    max-width:300px;
+    margin:0 auto;
+  }
+  .stack-layer{
+    position:absolute;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,.22);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    backdrop-filter: blur(16px) saturate(160%);
+    transition:transform .35s cubic-bezier(.2,.8,.2,1);
+  }
+  .l3{
+    width:64%; height:74%;
+    top:2%; right:2%;
+    background:linear-gradient(160deg, rgba(255,255,255,0.08), rgba(91,109,255,0.07));
+    transform:rotate(-7deg);
+    opacity:.5;
+  }
+  .l2{
+    width:74%; height:86%;
+    top:6%; right:9%;
+    background:linear-gradient(160deg, rgba(255,255,255,0.12), rgba(43,227,227,0.06));
+    transform:rotate(4deg);
+    opacity:.72;
+  }
+  .l1{
+    width:84%; height:100%;
+    bottom:0; left:0;
+    background:linear-gradient(160deg, rgba(255,255,255,0.16), rgba(43,227,227,0.10));
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 20px 44px -22px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.38);
+  }
+  .l1 svg{
+    width:36px; height:36px;
+    color:var(--cyan);
+    filter:drop-shadow(0 0 12px rgba(43,227,227,.6));
+  }
+
+  .work-caption{
+    position:relative; z-index:1;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-top:18px;
+    font-size:12.5px;
+    color:var(--ink-dim);
+    font-weight:500;
+  }
+  .work-caption strong{
+    color:var(--ink);
+    font-weight:800;
+    font-size:14px;
+  }
+  .work-arrow{ font-size:18px; color:var(--cyan); }
+
 
   /* ---------- WORK GALLERY MODAL ---------- */
   .work-modal{
@@ -484,14 +553,21 @@
 
   <section class="section">
     <button type="button" class="work-trigger" id="workTrigger">
-      <span class="work-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 5v14l11-7L8 5Z"/></svg>
+      <span class="work-top">
+        <span class="work-badge">أعمالي</span>
+        <span class="work-meta">٨ مقاطع</span>
       </span>
-      <span class="work-text">
-        <strong>أعمالي</strong>
-        <small>شاهد اخر أعمالي</small>
+      <span class="work-stack" aria-hidden="true">
+        <span class="stack-layer l3"></span>
+        <span class="stack-layer l2"></span>
+        <span class="stack-layer l1">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5Z"/></svg>
+        </span>
       </span>
-      <span class="work-arrow">←</span>
+      <span class="work-caption">
+        <strong>شاهد اخر أعمالي</strong>
+        <span class="work-arrow">←</span>
+      </span>
     </button>
   </section>
 
